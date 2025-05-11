@@ -1,8 +1,9 @@
 {
-  "name": "codewise",
-  "displayName": "CodeWise",
+  "name": "codewise-beta",
+  "displayName": "CodeWise (beta)",
   "description": "automated solution that uses Artificial Intelligence to review programmers' code, identifying and suggesting improvements for performance and code smells. With Code Wise, you can efficiently optimize your code, receiving real-time feedback directly in your workflow.",
   "version": "0.0.1",
+  "preview": true,
   "publisher": "GabrielDiasBrito",
   "engines": {
     "vscode": "^1.100.0"

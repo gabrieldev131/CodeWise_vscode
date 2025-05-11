@@ -1,6 +1,6 @@
 # Change Log
 
-* Initial contents 0.0.1
+* Initial contents 0.0.1-beta
     First public version of the extension.
 
     Start n8n locally or with an Ngrok tunnel.
