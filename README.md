@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # codewise
 
 automated solution that uses Artificial Intelligence to review programmers' code, identifying and suggesting improvements for performance and code smells. With Code Wise, you can efficiently optimize your code, receiving real-time feedback directly in your workflow.
@@ -56,7 +57,7 @@ No additional settings or configuration files are required. All environment vari
 
 ## Known Issues
 
-C❗ Ngrok binary not found: If Ngrok is not installed or not placed in a known location (like Documents, Downloads, or Home), the extension won't be able to start Ngrok tunnels.
+❗ Ngrok binary not found: If Ngrok is not installed or not placed in a known location (like Documents, Downloads, or Home), the extension won't be able to start Ngrok tunnels.
 → Fix: Download Ngrok and place it in one of the default directories or add it to your system’s PATH.
 
 ❗ Workflow not loading immediately: Sometimes, the N8N service may take longer to become fully ready, leading to failed attempts to deploy the workflow.
@@ -111,3 +112,6 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 * [Code Reference](https://github.com/gabrieldev131/CodeWise.git)
 
+=======
+# CodeWise_vscode
+>>>>>>> 1439a0fd84f5e1c6b0a4beb41e8006735156b8ef
