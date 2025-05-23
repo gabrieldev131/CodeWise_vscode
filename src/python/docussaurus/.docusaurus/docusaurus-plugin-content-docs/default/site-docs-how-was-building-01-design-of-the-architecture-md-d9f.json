@@ -1,0 +1,29 @@
+{
+  "id": "How was building/01-Design-of-the-architecture",
+  "title": "Design of the Architecture",
+  "description": "MVC ARCHITETURE",
+  "source": "@site/docs/How was building/01-Design-of-the-architecture.md",
+  "sourceDirName": "How was building",
+  "slug": "/How was building/01-Design-of-the-architecture",
+  "permalink": "/CodeWise/docs/How was building/01-Design-of-the-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/gabrieldev131/CodeWise.git/docs/How was building/01-Design-of-the-architecture.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "id": "01-Design-of-the-architecture",
+    "title": "Design of the Architecture",
+    "sidebar_label": "Design of the Architecture"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Translate your site",
+    "permalink": "/CodeWise/docs/tutorial-extras/translate-your-site"
+  },
+  "next": {
+    "title": "Explanation of each component and layer",
+    "permalink": "/CodeWise/docs/How was building/02-Explanation-of-each-component-and-layer"
+  }
+}

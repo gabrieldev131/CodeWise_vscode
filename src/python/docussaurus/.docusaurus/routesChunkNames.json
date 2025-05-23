@@ -1,0 +1,289 @@
+{
+  "/CodeWise/blog-361": {
+    "__comp": "a6aa9e1f",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "8e13f336"
+  },
+  "/CodeWise/blog/archive-41a": {
+    "__comp": "9e4087bc",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "__props": "105b47d5"
+  },
+  "/CodeWise/blog/authors-72d": {
+    "__comp": "621db11d",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "__props": "e22bb490"
+  },
+  "/CodeWise/blog/authors/all-sebastien-lorber-articles-2e1": {
+    "__comp": "33fc5bb8",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "sidebar": "814f3328",
+    "__props": "67d2145c"
+  },
+  "/CodeWise/blog/authors/yangshun-01e": {
+    "__comp": "33fc5bb8",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "sidebar": "814f3328",
+    "__props": "789abc64"
+  },
+  "/CodeWise/blog/first-blog-post-2df": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "e273c56f"
+  },
+  "/CodeWise/blog/long-blog-post-f25": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "73664a40"
+  },
+  "/CodeWise/blog/mdx-blog-post-8ee": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "59362658"
+  },
+  "/CodeWise/blog/tags-6df": {
+    "__comp": "01a85c17",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "__props": "9d7bbb54"
+  },
+  "/CodeWise/blog/tags/docusaurus-aac": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "f4f34a3a"
+      },
+      {
+        "content": "8717b14a"
+      },
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "a3fe8fa3"
+  },
+  "/CodeWise/blog/tags/facebook-2c3": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      }
+    ],
+    "__props": "fd8ca25a"
+  },
+  "/CodeWise/blog/tags/hello-58a": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "7661071f"
+      },
+      {
+        "content": "8717b14a"
+      }
+    ],
+    "__props": "ba9faaa7"
+  },
+  "/CodeWise/blog/tags/hola-f6f": {
+    "__comp": "6875c492",
+    "__context": {
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "items": [
+      {
+        "content": "925b3f96"
+      }
+    ],
+    "__props": "ae1f2f77"
+  },
+  "/CodeWise/blog/welcome-c71": {
+    "__comp": "ccc49370",
+    "__context": {
+      "data": {
+        "blogMetadata": "acecf23e"
+      },
+      "plugin": "36994c47"
+    },
+    "sidebar": "814f3328",
+    "content": "d9f32620"
+  },
+  "/CodeWise/markdown-page-be2": {
+    "__comp": "1f391b9e",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "content": "393be207"
+  },
+  "/CodeWise/docs-97c": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/CodeWise/docs-fab": {
+    "__comp": "a7bd4aaa",
+    "__props": "4aecc9b7"
+  },
+  "/CodeWise/docs-92b": {
+    "__comp": "a94703ab"
+  },
+  "/CodeWise/docs/category/tutorial---basics-912": {
+    "__comp": "14eb3368",
+    "__props": "3ae8049e"
+  },
+  "/CodeWise/docs/category/tutorial---extras-584": {
+    "__comp": "14eb3368",
+    "__props": "921b15e6"
+  },
+  "/CodeWise/docs/How was building/01-Design-of-the-architecture-cc7": {
+    "__comp": "17896441",
+    "content": "d9f16305"
+  },
+  "/CodeWise/docs/How was building/02-Explanation-of-each-component-and-layer-4e9": {
+    "__comp": "17896441",
+    "content": "5a639e33"
+  },
+  "/CodeWise/docs/How was building/03-Analysis-of-improvement-points-based-on-software-architecture-concepts-3d2": {
+    "__comp": "17896441",
+    "content": "b2395405"
+  },
+  "/CodeWise/docs/How was building/04-Bibliographical-references-on-the-adopted-architecture-c01": {
+    "__comp": "17896441",
+    "content": "6e490dff"
+  },
+  "/CodeWise/docs/intro-65f": {
+    "__comp": "17896441",
+    "content": "0e384e19"
+  },
+  "/CodeWise/docs/tutorial-basics/congratulations-775": {
+    "__comp": "17896441",
+    "content": "822bd8ab"
+  },
+  "/CodeWise/docs/tutorial-basics/create-a-blog-post-51d": {
+    "__comp": "17896441",
+    "content": "533a09ca"
+  },
+  "/CodeWise/docs/tutorial-basics/create-a-document-29f": {
+    "__comp": "17896441",
+    "content": "1e4232ab"
+  },
+  "/CodeWise/docs/tutorial-basics/create-a-page-3d1": {
+    "__comp": "17896441",
+    "content": "5c868d36"
+  },
+  "/CodeWise/docs/tutorial-basics/deploy-your-site-aae": {
+    "__comp": "17896441",
+    "content": "f55d3e7a"
+  },
+  "/CodeWise/docs/tutorial-basics/markdown-features-5ff": {
+    "__comp": "17896441",
+    "content": "18c41134"
+  },
+  "/CodeWise/docs/tutorial-extras/manage-docs-versions-9b4": {
+    "__comp": "17896441",
+    "content": "dff1c289"
+  },
+  "/CodeWise/docs/tutorial-extras/translate-your-site-4a1": {
+    "__comp": "17896441",
+    "content": "e44a2883"
+  },
+  "/CodeWise/-8ac": {
+    "__comp": "c4f5d8e4",
+    "__context": {
+      "plugin": "a7456010"
+    },
+    "config": "5e9f5e1a"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "How was building/04-Bibliographical-references-on-the-adopted-architecture",
+  "title": "Bibliographical references on the adopted architecture",
+  "description": "- Clean Architecture A CRAFTSMAN'S Guide To Software Structure And Design, Robert C. Martin",
+  "source": "@site/docs/How was building/04-Bibliographical-references-on-the-adopted-architecture.md",
+  "sourceDirName": "How was building",
+  "slug": "/How was building/04-Bibliographical-references-on-the-adopted-architecture",
+  "permalink": "/CodeWise/docs/How was building/04-Bibliographical-references-on-the-adopted-architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/gabrieldev131/CodeWise.git/docs/How was building/04-Bibliographical-references-on-the-adopted-architecture.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "id": "04-Bibliographical-references-on-the-adopted-architecture",
+    "title": "Bibliographical references on the adopted architecture",
+    "sidebar_label": "Bibliographical references on the adopted architecture"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Analysis of improvement points based on software architecture concepts",
+    "permalink": "/CodeWise/docs/How was building/03-Analysis-of-improvement-points-based-on-software-architecture-concepts"
+  }
+}
