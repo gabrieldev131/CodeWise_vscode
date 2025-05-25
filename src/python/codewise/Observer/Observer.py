@@ -60,12 +60,14 @@ class GitCommitObserver(FileSystemEventHandler):
                     lines.append(f"(Erro ao exibir diff: {e})")
 
         # Salva tudo em test.txt
-        with open("test.txt", "a", encoding="utf-8") as f:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.join(script_dir, 'test.txt')
+        with open(output_path, "a", encoding="utf-8") as f:
             f.write("\n".join(lines))
             f.write("\n" + "="*60 + "\n")
 
 
-def find_git_repo(start_path="."):
+def find_git_repo(start_path):
     path = Path(start_path).resolve()
     while path != path.parent:
         git_dir = path / ".git"
@@ -87,11 +89,11 @@ def start_observing(git_dir):
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
-
+''''
 if __name__ == "__main__":
     git_repo = find_git_repo()
     if git_repo:
         start_observing(git_repo)
     else:
         print("Nenhum repositório Git encontrado no caminho atual ou acima.")
-        
+  '''      
