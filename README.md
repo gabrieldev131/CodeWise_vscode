@@ -28,29 +28,7 @@ Ensures all required .env variables are valid before running the analysis.
 
 ## Requirements
 
-To run this extension properly, make sure you have the following installed on your system:
-
-    Docker — Required to run the N8N container.
-
-    Ngrok — Must be downloaded and placed somewhere accessible (e.g., in your Documents folder).
-
-    Ngrok Authtoken — You’ll need a free account on ngrok.com.
-
-    VSCode — This extension runs inside Visual Studio Code.
-
-    Github Oauth2 — You’ll need a free account on github.com
-
-    Github Webhook — You'll need to make a webhook in your github repository
-
-    Telegram Webhook — You’ll need a free account on telegram
-
-    Internet connection — Required for pulling Docker images and establishing Ngrok tunnels.
-
-    ℹ️ The extension automatically detects your Ngrok binary and sets the token if it's missing.
-
-## Extension Settings
-
-    Python version >=3.10 and <3.13
+Python version >=3.10 and <3.13
 
     Node.js and npm installed on your system
 
@@ -65,6 +43,24 @@ To run this extension properly, make sure you have the following installed on yo
     Internet connection to run LLM-based agents
 
     pip on your system
+
+## Extension Settings
+This extension does not require any custom user configuration. However, ensure the following are properly set up:
+
+    A .env file must be present in the root of your workspace, containing the required environment variables:
+
+        MODEL: The AI model to be used (e.g., gemini-pro).
+
+        GEMINI_API_KEY: Your valid API key for the selected model.
+
+    A Git repository must be initialized in your workspace.
+
+    Python must be installed (version >= 3.10 and < 3.13).
+
+    All required Python dependencies must be installed using the requirements.txt file
+    
+Once these are in place, the extension will automatically observe changes and trigger the analysis pipeline when appropriate.
+    
 
 ## Known Issues
 
