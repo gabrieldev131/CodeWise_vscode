@@ -1,0 +1,23 @@
+[project]
+name = "codewise"
+version = "0.1.0"
+description = "CodeWise using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.102.0,<1.0.0"
+]
+
+[project.scripts]
+codewise = "codewise.main:run"
+run_crew = "codewise.main:run"
+train = "codewise.main:train"
+replay = "codewise.main:replay"
+test = "codewise.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
