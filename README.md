@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # codewise
 
 automated solution that uses Artificial Intelligence to review programmers' code, identifying and suggesting improvements for performance and code smells. With Code Wise, you can efficiently optimize your code, receiving real-time feedback directly in your workflow.
@@ -58,7 +57,7 @@ This extension does not require any custom user configuration. However, ensure t
     Python must be installed (version >= 3.10 and < 3.13).
 
     All required Python dependencies must be installed using the requirements.txt file
-    
+
 Once these are in place, the extension will automatically observe changes and trigger the analysis pipeline when appropriate.
     
 
@@ -106,7 +105,3 @@ Best practices observed include:
 * [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 * [Code Reference](https://github.com/gabrieldev131/CodeWise.git)
-
-=======
-# CodeWise_vscode
->>>>>>> 1439a0fd84f5e1c6b0a4beb41e8006735156b8ef
