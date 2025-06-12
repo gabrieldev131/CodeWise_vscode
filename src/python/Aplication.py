@@ -1,4 +1,5 @@
 import asyncio
+import time
 import os
 from controller.ObserverController import ObserverController
 from controller.CrewController import CrewController
@@ -13,35 +14,33 @@ def verifyFile():
     return os.path.exists(getInput())
 
 def env_is_valid():
-    try:
-        crew = CrewController()
-        crew.start() 
-        return True
-    except Exception as e:
+    crew = CrewController()
+    result = crew.start() 
+    if result is None or result == "":
         return False
+    return True
+    
 
 def writeError():
     script_dir = Path(__file__).resolve()
     output_path = os.path.join(script_dir.parents[1],'API_ERROR.txt')
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("Váriavel MODEL ou CODEWISE_AGENT_API_KEY está incorreta.\n")
+        f.write("Váriavel MODEL está incorreta.\n")
 
 def removeInput():
     if verifyFile():
         os.remove(getInput())
 
 async def main():
-
     observer = ObserverController()
     observer_task = asyncio.create_task(observer.start())
-
+    
     while not verifyFile():
-        await asyncio.sleep(1)
+        time.sleep(1)
 
     while not env_is_valid():
         writeError()
-        await asyncio.sleep(3)
-
+        time.sleep(3)
     removeInput()
     await asyncio.gather(observer_task)
 

@@ -11,12 +11,10 @@ class testCrew():
     def start(self):
         load_dotenv()
         model = os.getenv("MODEL")
-        api_key = os.getenv("CODEWISE_AGENT_API_KEY")
+        if not model:
+            raise ValueError("Variável de ambiente 'MODEL' está ausente ou inválida.")
 
-        if not model or not api_key:
-            raise ValueError("Variáveis de ambiente 'MODEL' ou 'CODEWISE_AGENT_API_KEY' estão ausentes ou inválidas.")
-
-        llm = LLM(model=model, api_key=api_key)
+        llm = LLM(model=model)
 
         script_dir = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(script_dir, 'gitInput.txt')
@@ -90,3 +88,7 @@ class testCrew():
             llm=llm
         )
         return crew.kickoff()
+if __name__ == "__main__":
+    test = testCrew()
+    result = test.start()
+    print(result)

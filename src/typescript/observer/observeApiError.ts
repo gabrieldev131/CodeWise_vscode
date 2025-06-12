@@ -25,7 +25,7 @@ export function observeApiError(context: vscode.ExtensionContext) {
 
 function handleApiError(filePath: string) {
   if (fs.existsSync(filePath)) {
-    vscode.window.showErrorMessage("Variável MODEL ou CODEWISE_AGENT_API_KEY está incorreta.");
+    vscode.window.showErrorMessage("Variável MODEL está incorreta.");
     try {
       fs.unlinkSync(filePath);
     } catch (error) {

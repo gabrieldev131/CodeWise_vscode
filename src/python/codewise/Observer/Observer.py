@@ -66,7 +66,7 @@ class GitCommitObserver(FileSystemEventHandler):
             output_path = os.path.join(project_root, 'crewAI_workflow', 'gitInput.txt')
             
 
-        with open(output_path, "a", encoding="utf-8") as f:
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
             f.write("\n" + "="*60 + "\n")
 

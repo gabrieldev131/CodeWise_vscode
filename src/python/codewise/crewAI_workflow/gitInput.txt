@@ -1,1519 +1,210 @@
 
 New commit detected:
-Hash: 1dc1d6d3807a412642938e8193798750d9edc4f6
+Hash: 120e7b23716f382bc47a8aa948a976fb3c57457c
 Autor: gabriel <gabrieldev131@gmail.com>
-Date: 2025-06-05 19:13:13-03:00
-Mensage: test9
+Date: 2025-06-12 13:54:25-03:00
+Mensage: go
 changes files:
 
-[UNDEFINED] Observer.py
-@@ -71,6 +71,7 @@ class GitCommitObserver(FileSystemEventHandler):
-             f.write("\n" + "="*60 + "\n")
- 
- #jump me
-+#me too
- def find_git_repo(start_path):
-     path = Path(start_path).resolve()
-     while path != path.parent:
-
-============================================================
-
-New commit detected:
-Hash: 9a4d79475984474560cecc58b0c9fa2dfea12ce9
-Autor: gabriel <gabrieldev131@gmail.com>
-Date: 2025-06-05 19:14:05-03:00
-Mensage: test10
-changes files:
-
-[UNDEFINED] crewAI_workflow/.gitignore
-@@ -1,4 +0,0 @@
--.env
--__pycache__/
--.DS_Store
--APIs.txt
-\ No newline at end of file
-
-
-[UNDEFINED] crewAI_workflow/README.md
-@@ -1,54 +0,0 @@
--# Codewise Crew
--
--Welcome to the Codewise Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
--
--## Installation
--
--Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
--
--First, if you haven't already, install uv:
--
--```bash
--pip install uv
--```
--
--Next, navigate to your project directory and install the dependencies:
--
--(Optional) Lock the dependencies and install them by using the CLI command:
--```bash
--crewai install
--```
--### Customizing
--
--**Add your `OPENAI_API_KEY` into the `.env` file**
--
--- Modify `src/codewise/config/agents.yaml` to define your agents
--- Modify `src/codewise/config/tasks.yaml` to define your tasks
--- Modify `src/codewise/crew.py` to add your own logic, tools and specific args
--- Modify `src/codewise/main.py` to add custom inputs for your agents and tasks
--
--## Running the Project
--
--To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
--
--```bash
--$ crewai run
--```
--
--This command initializes the CodeWise Crew, assembling the agents and assigning them tasks as defined in your configuration.
--
--This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
--
--## Understanding Your Crew
--
--The CodeWise Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
--
--## Support
--
--For support, questions, or feedback regarding the Codewise Crew or crewAI.
--- Visit our [documentation](https://docs.crewai.com)
--- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
--- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
--- [Chat with our docs](https://chatg.pt/DWjSBZn)
--
--Let's create wonders together with the power and simplicity of crewAI.
-
-
-[UNDEFINED] crewAI_workflow/WriteInFile.py
-@@ -1,8 +0,0 @@
--class WriteInFile():
--    def __init__(self, filePathToSave: str):
--        self.filePathToSave = filePathToSave
--    
--    def write(self, conteudo):
--        with open(self.filePathToSave, "w", encoding="utf-8") as f:
--            f.write(conteudo)
--            
-
-
-[UNDEFINED] crewAI_workflow/__init__.py
-
-[UNDEFINED] crewAI_workflow/config/agents.yaml
-@@ -1,19 +0,0 @@
--researcher:
--  role: >
--    {topic} Senior Data Researcher
--  goal: >
--    Uncover cutting-edge developments in {topic}
--  backstory: >
--    You're a seasoned researcher with a knack for uncovering the latest
--    developments in {topic}. Known for your ability to find the most relevant
--    information and present it in a clear and concise manner.
--
--reporting_analyst:
--  role: >
--    {topic} Reporting Analyst
--  goal: >
--    Create detailed reports based on {topic} data analysis and research findings
--  backstory: >
--    You're a meticulous analyst with a keen eye for detail. You're known for
--    your ability to turn complex data into clear and concise reports, making
--    it easy for others to understand and act on the information you provide.
-\ No newline at end of file
-
-
-[UNDEFINED] crewAI_workflow/config/tasks.yaml
-@@ -1,17 +0,0 @@
--research_task:
--  description: >
--    Conduct a thorough research about {topic}
--    Make sure you find any interesting and relevant information given
--    the current year is {current_year}.
--  expected_output: >
--    A list with 10 bullet points of the most relevant information about {topic}
--  agent: researcher
--
--reporting_task:
--  description: >
--    Review the context you got and expand each topic into a full section for a report.
--    Make sure the report is detailed and contains any and all relevant information.
--  expected_output: >
--    A fully fledged report with the main topics, each with a full section of information.
--    Formatted as markdown without '```'
--  agent: reporting_analyst
-
-
-[UNDEFINED] crewAI_workflow/knowledge/user_preference.txt
-@@ -1,4 +0,0 @@
--User name is John Doe.
--User is an AI Engineer.
--User is interested in AI Agents.
--User is based in San Francisco, California.
-
-
-[UNDEFINED] crewAI_workflow/pyproject.toml
-@@ -1,23 +0,0 @@
--[project]
--name = "codewise"
--version = "0.1.0"
--description = "CodeWise using crewAI"
--authors = [{ name = "Your Name", email = "you@example.com" }]
--requires-python = ">=3.10,<3.13"
--dependencies = [
--    "crewai[tools]>=0.102.0,<1.0.0"
--]
--
--[project.scripts]
--codewise = "codewise.main:run"
--run_crew = "codewise.main:run"
--train = "codewise.main:train"
--replay = "codewise.main:replay"
--test = "codewise.main:test"
--
--[build-system]
--requires = ["hatchling"]
--build-backend = "hatchling.build"
--
--[tool.crewai]
--type = "crew"
-
-
-
-
-[UNDEFINED] crewAI_workflow/testCrew.py
-@@ -1,89 +0,0 @@
--import os
--from crewai import Agent, Task, Crew, Process, LLM
--from crewai_tools import FileReadTool
--from dotenv import load_dotenv
--
--
--class testCrew():
--    def __init__(self):
--        pass
--
--    def start(self):
--        load_dotenv()
--        llm = LLM(
--            model=os.getenv("MODEL"), 
--            api_key=os.getenv("GEMINI_API_KEY"))
--
--        script_dir = os.path.dirname(os.path.abspath(__file__))
--        path = os.path.join(script_dir, 'gitInput.txt')
--
--        file_tool = FileReadTool(file_path=path)
--
--        # === Agents ===
--        architect = Agent(
--            role="Arquiteto de Software",
--            goal="Avaliar a estrutura e arquitetura do projeto de forma crítica",
--            backstory="Especialista em arquitetura de software escalável, define boas práticas para equipes ágeis.",
--            tools=[file_tool],
--            memory=True,
--        )
--
--        integration_analyst = Agent(
--            role="Analista de Integrações",
--            goal="Examinar os fluxos entre módulos e sugerir melhorias",
--            backstory="Com anos de experiência em sistemas distribuídos, é focado em encontrar falhas de comunicação entre módulos.",
--            tools=[file_tool],
--            memory=True,
--        )
--
--        solid_guardian = Agent(
--            role="Guardião dos Princípios SOLID",
--            goal="Verificar e corrigir violações de boas práticas SOLID",
--            backstory="Um verdadeiro defensor da engenharia orientada a princípios, especialista em refatoração.",
--            tools=[file_tool],
--            memory=True,
--        )
--
--        design_consultant = Agent(
--            role="Consultor de Design Patterns",
--            goal="Sugerir padrões de projeto aplicáveis ao código",
--            backstory="Transforma bases de código confusas em exemplos de elegância com padrões clássicos de software.",
--            tools=[file_tool],
--            memory=True,
--        )
--
--        # === Tasks ===
--        task_structure = Task(
--            description="Analise a estrutura de pastas do projeto descrito em gitInput.txt. Identifique se há um padrão arquitetural (ex: MVC, DDD, Clean).",
--            expected_output="Um relatório descrevendo o padrão atual da estrutura ou a falta dele, com sugestões.",
--            agent=architect
--        )
--
--        task_integrations = Task(
--            description="Avalie os fluxos de integração do projeto descrito no gitInput.txt. Descreva como os módulos interagem, e aponte problemas de acoplamento ou falhas.",
--            expected_output="Mapa geral dos fluxos, com destaques nos pontos críticos e sugestões de melhoria.",
--            agent=integration_analyst
--        )
--
--        task_solid = Task(
--            description="Revise as classes e métodos encontrados no código do gitInput.txt, identificando violações aos princípios SOLID.",
--            expected_output="Lista de violações SOLID e recomendações específicas para corrigi-las.",
--            agent=solid_guardian
--        )
--
--        task_patterns = Task(
--            description="Sugira até 3 padrões de projeto que poderiam melhorar o código descrito em gitInput.txt. Explique onde e como aplicá-los.",
--            expected_output="Sugestões de padrões de projeto com justificativas técnicas e exemplos baseados no código fornecido.",
--            agent=design_consultant,
--            output_file="commit_analysis_report.md"
--        )
--
--        # === Crew ===
--        crew = Crew(
--            agents=[architect, integration_analyst, solid_guardian, design_consultant],
--            tasks=[task_structure, task_integrations, task_solid, task_patterns],
--            process=Process.sequential,
--            llm=llm
--        )
--        os.remove(path)
--        return crew.kickoff()
-
-[UNDEFINED] operations/jsonOperations/GetJson.py
-@@ -1,16 +0,0 @@
--import json
--from pathlib import Path
--
--class GetJson():
--    def __init__(self):
--         pass
--    
--    def get_repo_path_from_json(self):
--        json_path = Path(__file__).resolve().parents[3] / "repo_path.json"
--        if not json_path.exists():
--            return None
--
--        with open(json_path, 'r', encoding='utf-8') as jsonFile:
--            data = json.load(jsonFile)
--            return data.get("repoPath")
--
-
-
-[UNDEFINED] operations/jsonOperations/__init__.py
-
-[UNDEFINED] operations/jsonOperations/__pycache__/GetJson.cpython-312.pyc
-Binary files a/operations/jsonOperations/__pycache__/GetJson.cpython-312.pyc and /dev/null differ
-
-
-[UNDEFINED] operations/jsonOperations/__pycache__/__init__.cpython-312.pyc
-Binary files a/operations/jsonOperations/__pycache__/__init__.cpython-312.pyc and /dev/null differ
-
-============================================================
-
-New commit detected:
-Hash: a5fe17663988036bfa31ac1a00e44945e19cb230
-Autor: gabriel <gabrieldev131@gmail.com>
-Date: 2025-06-05 19:17:48-03:00
-Mensage: test10
-changes files:
-
-[UNDEFINED] codewise/DTO/RequestObserverDTO.py
-@@ -0,0 +1,5 @@
-+class RequestObserverDTO:
-+    def __init__(self, git_path):
-+        self.git_path = git_path
-+        
-+
-
-
-[UNDEFINED] codewise/DTO/ResponseObserverDTO.py
+[UNDEFINED] Aluno.cs
 @@ -0,0 +1,18 @@
-+class ChangedFile:
-+    def __init__(self, file_path, change_type, diff_content):
-+        self.file_path = file_path
-+        self.change_type = change_type
-+        self.diff_content = diff_content
-+
-+
-+
-+class ResponseObserverDTO:
-+    def __init__(self, commit_hash, author_name, author_email, committed_date, message, changed_files):
-+        self.commit_hash = commit_hash
-+        self.author_name = author_name
-+        self.author_email = author_email
-+        self.committed_date = committed_date
-+        self.message = message
-+        self.changed_files_list = changed_files 
-+
-+
-
-
-[UNDEFINED] codewise/DTO/__init__.py
-
-[UNDEFINED] codewise/Observer/Observer.py
-@@ -0,0 +1,96 @@
-+import time
-+import os
-+from pathlib import Path
-+from watchdog.observers import Observer
-+from watchdog.events import FileSystemEventHandler
-+from git import Repo
-+from git import NULL_TREE
-+
-+
-+class GitCommitObserver(FileSystemEventHandler):
-+    def __init__(self, git_path):
-+        self.repo_path = git_path.parent
-+        self.logs_head_file = os.path.join(git_path, "logs", "HEAD")
-+        self.last_commit_hash = self.get_last_commit_hash()
-+
-+    def get_last_commit_hash(self):
-+        try:
-+            repo = Repo(self.repo_path)
-+            return repo.head.commit.hexsha
-+        except:
-+            return None
-+
-+    def on_modified(self, event):
-+        if event.src_path == self.logs_head_file:
-+            time.sleep(0.5)
-+            new_commit_hash = self.get_last_commit_hash()
-+            if new_commit_hash != self.last_commit_hash:
-+                self.last_commit_hash = new_commit_hash
-+                self.show_commit_details(new_commit_hash)
-+
-+    def show_commit_details(self, commit_hash, output_path=None):
-+        repo = Repo(self.repo_path)
-+        commit = repo.commit(commit_hash)
-+
-+        lines = []
-+        lines.append("\nNew commit detected:")
-+        lines.append(f"Hash: {commit.hexsha}")
-+        lines.append(f"Autor: {commit.author.name} <{commit.author.email}>")
-+        lines.append(f"Date: {commit.committed_datetime}")
-+        lines.append(f"Mensage: {commit.message.strip()}")
-+        lines.append("changes files:")
-+
-+        parent = commit.parents[0] if commit.parents else None
-+
-+        if parent:
-+            diffs = parent.diff(commit, create_patch=True)
-+        else:
-+            diffs = commit.diff(NULL_TREE, create_patch=True)  # para commit inicial
-+
-+        for diff in diffs:
-+            change_type = diff.change_type.upper() if diff.change_type else "UNDEFINED"
-+            file_path = diff.a_path if diff.a_path else diff.b_path
-+            lines.append(f"\n[{change_type}] {file_path}")
-+
-+            if diff.diff:
-+                try:
-+                    diff_text = diff.diff.decode('utf-8', errors='replace')
-+                    lines.append(diff_text)
-+                except Exception as e:
-+                    lines.append(f"(Erro to print diff: {e})")
-+
-+        #save anything in gitInput.txt
-+        if output_path is None:
-+            script_dir = Path(__file__).resolve()
-+            project_root = script_dir.parents[1]  
-+            output_path = os.path.join(project_root, 'crewAI_workflow', 'gitInput.txt')
-+            
-+
-+        with open(output_path, "a", encoding="utf-8") as f:
-+            f.write("\n".join(lines))
-+            f.write("\n" + "="*60 + "\n")
-+
-+
-+def find_git_repo(start_path):
-+    path = Path(start_path).resolve()
-+    while path != path.parent:
-+        git_dir = path / ".git"
-+        if git_dir.is_dir():
-+            return git_dir
-+        path = path.parent
-+    return None
-+
-+def start_observing(git_dir):
-+    event_handler = GitCommitObserver(git_dir)
-+    observer = Observer()
-+    observer.schedule(event_handler, path=os.path.join(git_dir, "logs"), recursive=False)
-+    observer.start()
-+
-+    try:
-+        while True:
-+            time.sleep(1)
-+    except KeyboardInterrupt:
-+        observer.stop()
-+    observer.join()
-+ 
-+
-
-
-[UNDEFINED] codewise/Observer/__init__.py
-
-[UNDEFINED] codewise/crewAI_workflow/.gitignore
-@@ -0,0 +1,4 @@
-+.env
-+__pycache__/
-+.DS_Store
-+APIs.txt
-\ No newline at end of file
-
-
-[UNDEFINED] codewise/crewAI_workflow/WriteInFile.py
-@@ -0,0 +1,8 @@
-+class WriteInFile():
-+    def __init__(self, filePathToSave: str):
-+        self.filePathToSave = filePathToSave
++namespace WebAluno {
 +    
-+    def write(self, conteudo):
-+        with open(self.filePathToSave, "w", encoding="utf-8") as f:
-+            f.write(conteudo)
-+            
-
-
-[UNDEFINED] codewise/crewAI_workflow/__init__.py
-
-[UNDEFINED] codewise/crewAI_workflow/config/agents.yaml
-@@ -0,0 +1,19 @@
-+researcher:
-+  role: >
-+    {topic} Senior Data Researcher
-+  goal: >
-+    Uncover cutting-edge developments in {topic}
-+  backstory: >
-+    You're a seasoned researcher with a knack for uncovering the latest
-+    developments in {topic}. Known for your ability to find the most relevant
-+    information and present it in a clear and concise manner.
++    public class Aluno
++    {
++        public int? Id { get; set; }
++        public string? Nome { get; set; }
++        public string? Endereco { get; set; }
 +
-+reporting_analyst:
-+  role: >
-+    {topic} Reporting Analyst
-+  goal: >
-+    Create detailed reports based on {topic} data analysis and research findings
-+  backstory: >
-+    You're a meticulous analyst with a keen eye for detail. You're known for
-+    your ability to turn complex data into clear and concise reports, making
-+    it easy for others to understand and act on the information you provide.
-\ No newline at end of file
-
-
-[UNDEFINED] codewise/crewAI_workflow/config/tasks.yaml
-@@ -0,0 +1,17 @@
-+research_task:
-+  description: >
-+    Conduct a thorough research about {topic}
-+    Make sure you find any interesting and relevant information given
-+    the current year is {current_year}.
-+  expected_output: >
-+    A list with 10 bullet points of the most relevant information about {topic}
-+  agent: researcher
-+
-+reporting_task:
-+  description: >
-+    Review the context you got and expand each topic into a full section for a report.
-+    Make sure the report is detailed and contains any and all relevant information.
-+  expected_output: >
-+    A fully fledged report with the main topics, each with a full section of information.
-+    Formatted as markdown without '```'
-+  agent: reporting_analyst
-
-
-[UNDEFINED] codewise/crewAI_workflow/gitInput.txt
-@@ -0,0 +1,4330 @@
-+
-+New commit detected:
-+Hash: 1dc1d6d3807a412642938e8193798750d9edc4f6
-+Autor: gabriel <gabrieldev131@gmail.com>
-+Date: 2025-06-05 19:13:13-03:00
-+Mensage: test9
-+changes files:
-+
-+[UNDEFINED] Observer.py
-+@@ -71,6 +71,7 @@ class GitCommitObserver(FileSystemEventHandler):
-+             f.write("\n" + "="*60 + "\n")
-+ 
-+ #jump me
-++#me too
-+ def find_git_repo(start_path):
-+     path = Path(start_path).resolve()
-+     while path != path.parent:
-+
-+============================================================
-+
-+New commit detected:
-+Hash: 9a4d79475984474560cecc58b0c9fa2dfea12ce9
-+Autor: gabriel <gabrieldev131@gmail.com>
-+Date: 2025-06-05 19:14:05-03:00
-+Mensage: test10
-+changes files:
-+
-+[UNDEFINED] crewAI_workflow/WriteInFile.py
-+@@ -1,8 +0,0 @@
-+-class WriteInFile():
-+-    def __init__(self, filePathToSave: str):
-+-        self.filePathToSave = filePathToSave
-+-    
-+-    def write(self, conteudo):
-+-        with open(self.filePathToSave, "w", encoding="utf-8") as f:
-+-            f.write(conteudo)
-+-            
-+
-+
-+[UNDEFINED] crewAI_workflow/__init__.py
-+
-+[UNDEFINED] crewAI_workflow/config/agents.yaml
-+@@ -1,19 +0,0 @@
-+-researcher:
-+-  role: >
-+-    {topic} Senior Data Researcher
-+-  goal: >
-+-    Uncover cutting-edge developments in {topic}
-+-  backstory: >
-+-    You're a seasoned researcher with a knack for uncovering the latest
-+-    developments in {topic}. Known for your ability to find the most relevant
-+-    information and present it in a clear and concise manner.
-+-
-+-reporting_analyst:
-+-  role: >
-+-    {topic} Reporting Analyst
-+-  goal: >
-+-    Create detailed reports based on {topic} data analysis and research findings
-+-  backstory: >
-+-    You're a meticulous analyst with a keen eye for detail. You're known for
-+-    your ability to turn complex data into clear and concise reports, making
-+-    it easy for others to understand and act on the information you provide.
-+\ No newline at end of file
-+
-+
-+[UNDEFINED] crewAI_workflow/config/tasks.yaml
-+@@ -1,17 +0,0 @@
-+-research_task:
-+-  description: >
-+-    Conduct a thorough research about {topic}
-+-    Make sure you find any interesting and relevant information given
-+-    the current year is {current_year}.
-+-  expected_output: >
-+-    A list with 10 bullet points of the most relevant information about {topic}
-+-  agent: researcher
-+-
-+-reporting_task:
-+-  description: >
-+-    Review the context you got and expand each topic into a full section for a report.
-+-    Make sure the report is detailed and contains any and all relevant information.
-+-  expected_output: >
-+-    A fully fledged report with the main topics, each with a full section of information.
-+-    Formatted as markdown without '```'
-+-  agent: reporting_analyst
-+
-+[UNDEFINED] crewAI_workflow/pyproject.toml
-+@@ -1,23 +0,0 @@
-+-[project]
-+-name = "codewise"
-+-version = "0.1.0"
-+-description = "CodeWise using crewAI"
-+-authors = [{ name = "Your Name", email = "you@example.com" }]
-+-requires-python = ">=3.10,<3.13"
-+-dependencies = [
-+-    "crewai[tools]>=0.102.0,<1.0.0"
-+-]
-+-
-+-[project.scripts]
-+-codewise = "codewise.main:run"
-+-run_crew = "codewise.main:run"
-+-train = "codewise.main:train"
-+-replay = "codewise.main:replay"
-+-test = "codewise.main:test"
-+-
-+-[build-system]
-+-requires = ["hatchling"]
-+-build-backend = "hatchling.build"
-+-
-+-[tool.crewai]
-+-type = "crew"
-+
-+
-+[UNDEFINED] crewAI_workflow/testCrew.py
-+@@ -1,89 +0,0 @@
-+-import os
-+-from crewai import Agent, Task, Crew, Process, LLM
-+-from crewai_tools import FileReadTool
-+-from dotenv import load_dotenv
-+-
-+-
-+-class testCrew():
-+-    def __init__(self):
-+-        pass
-+-
-+-    def start(self):
-+-        load_dotenv()
-+-        llm = LLM(
-+-            model=os.getenv("MODEL"), 
-+-            api_key=os.getenv("GEMINI_API_KEY"))
-+-
-+-        script_dir = os.path.dirname(os.path.abspath(__file__))
-+-        path = os.path.join(script_dir, 'gitInput.txt')
-+-
-+-        file_tool = FileReadTool(file_path=path)
-+-
-+-        # === Agents ===
-+-        architect = Agent(
-+-            role="Arquiteto de Software",
-+-            goal="Avaliar a estrutura e arquitetura do projeto de forma crítica",
-+-            backstory="Especialista em arquitetura de software escalável, define boas práticas para equipes ágeis.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        integration_analyst = Agent(
-+-            role="Analista de Integrações",
-+-            goal="Examinar os fluxos entre módulos e sugerir melhorias",
-+-            backstory="Com anos de experiência em sistemas distribuídos, é focado em encontrar falhas de comunicação entre módulos.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        solid_guardian = Agent(
-+-            role="Guardião dos Princípios SOLID",
-+-            goal="Verificar e corrigir violações de boas práticas SOLID",
-+-            backstory="Um verdadeiro defensor da engenharia orientada a princípios, especialista em refatoração.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        design_consultant = Agent(
-+-            role="Consultor de Design Patterns",
-+-            goal="Sugerir padrões de projeto aplicáveis ao código",
-+-            backstory="Transforma bases de código confusas em exemplos de elegância com padrões clássicos de software.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        # === Tasks ===
-+-        task_structure = Task(
-+-            description="Analise a estrutura de pastas do projeto descrito em gitInput.txt. Identifique se há um padrão arquitetural (ex: MVC, DDD, Clean).",
-+-            expected_output="Um relatório descrevendo o padrão atual da estrutura ou a falta dele, com sugestões.",
-+-            agent=architect
-+-        )
-+-
-+-        task_integrations = Task(
-+-            description="Avalie os fluxos de integração do projeto descrito no gitInput.txt. Descreva como os módulos interagem, e aponte problemas de acoplamento ou falhas.",
-+-            expected_output="Mapa geral dos fluxos, com destaques nos pontos críticos e sugestões de melhoria.",
-+-            agent=integration_analyst
-+-        )
-+-
-+-        task_solid = Task(
-+-            description="Revise as classes e métodos encontrados no código do gitInput.txt, identificando violações aos princípios SOLID.",
-+-            expected_output="Lista de violações SOLID e recomendações específicas para corrigi-las.",
-+-            agent=solid_guardian
-+-        )
-+-
-+-        task_patterns = Task(
-+-            description="Sugira até 3 padrões de projeto que poderiam melhorar o código descrito em gitInput.txt. Explique onde e como aplicá-los.",
-+-            expected_output="Sugestões de padrões de projeto com justificativas técnicas e exemplos baseados no código fornecido.",
-+-            agent=design_consultant,
-+-            output_file="commit_analysis_report.md"
-+-        )
-+-
-+-        # === Crew ===
-+-        crew = Crew(
-+-            agents=[architect, integration_analyst, solid_guardian, design_consultant],
-+-            tasks=[task_structure, task_integrations, task_solid, task_patterns],
-+-            process=Process.sequential,
-+-            llm=llm
-+-        )
-+-        os.remove(path)
-+-        return crew.kickoff()
-+
-+
-
-[UNDEFINED] codewise/crewAI_workflow/testCrew.py
-@@ -0,0 +1,88 @@
-+import os
-+from crewai import Agent, Task, Crew, Process, LLM
-+from crewai_tools import FileReadTool
-+from dotenv import load_dotenv
-+
-+
-+class testCrew():
-+    def __init__(self):
-+        pass
-+
-+    def start(self):
-+        load_dotenv()
-+        llm = LLM(
-+            model=os.getenv("MODEL"), 
-+            api_key=os.getenv("GEMINI_API_KEY"))
-+
-+        script_dir = os.path.dirname(os.path.abspath(__file__))
-+        path = os.path.join(script_dir, 'gitInput.txt')
-+
-+        file_tool = FileReadTool(file_path=path)
-+
-+        # === Agents ===
-+        architect = Agent(
-+            role="Arquiteto de Software",
-+            goal="Avaliar a estrutura e arquitetura do projeto de forma crítica",
-+            backstory="Especialista em arquitetura de software escalável, define boas práticas para equipes ágeis.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        integration_analyst = Agent(
-+            role="Analista de Integrações",
-+            goal="Examinar os fluxos entre módulos e sugerir melhorias",
-+            backstory="Com anos de experiência em sistemas distribuídos, é focado em encontrar falhas de comunicação entre módulos.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        solid_guardian = Agent(
-+            role="Guardião dos Princípios SOLID",
-+            goal="Verificar e corrigir violações de boas práticas SOLID",
-+            backstory="Um verdadeiro defensor da engenharia orientada a princípios, especialista em refatoração.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        design_consultant = Agent(
-+            role="Consultor de Design Patterns",
-+            goal="Sugerir padrões de projeto aplicáveis ao código",
-+            backstory="Transforma bases de código confusas em exemplos de elegância com padrões clássicos de software.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        # === Tasks ===
-+        task_structure = Task(
-+            description="Analise a estrutura de pastas do projeto descrito em gitInput.txt. Identifique se há um padrão arquitetural (ex: MVC, DDD, Clean).",
-+            expected_output="Um relatório descrevendo o padrão atual da estrutura ou a falta dele, com sugestões.",
-+            agent=architect
-+        )
-+
-+        task_integrations = Task(
-+            description="Avalie os fluxos de integração do projeto descrito no gitInput.txt. Descreva como os módulos interagem, e aponte problemas de acoplamento ou falhas.",
-+            expected_output="Mapa geral dos fluxos, com destaques nos pontos críticos e sugestões de melhoria.",
-+            agent=integration_analyst
-+        )
-+
-+        task_solid = Task(
-+            description="Revise as classes e métodos encontrados no código do gitInput.txt, identificando violações aos princípios SOLID.",
-+            expected_output="Lista de violações SOLID e recomendações específicas para corrigi-las.",
-+            agent=solid_guardian
-+        )
-+
-+        task_patterns = Task(
-+            description="Sugira até 3 padrões de projeto que poderiam melhorar o código descrito em gitInput.txt. Explique onde e como aplicá-los.",
-+            expected_output="Sugestões de padrões de projeto com justificativas técnicas e exemplos baseados no código fornecido.",
-+            agent=design_consultant,
-+            output_file="commit_analysis_report.md"
-+        )
-+
-+        # === Crew ===
-+        crew = Crew(
-+            agents=[architect, integration_analyst, solid_guardian, design_consultant],
-+            tasks=[task_structure, task_integrations, task_solid, task_patterns],
-+            process=Process.sequential,
-+            llm=llm
-+        )
-+        return crew.kickoff()
-
-
-[UNDEFINED] codewise/operations/jsonOperations/GetJson.py
-@@ -0,0 +1,16 @@
-+import json
-+from pathlib import Path
-+
-+class GetJson():
-+    def __init__(self):
-+         pass
-+    
-+    def get_repo_path_from_json(self):
-+        json_path = Path(__file__).resolve().parents[3] / "repo_path.json"
-+        if not json_path.exists():
-+            return None
-+
-+        with open(json_path, 'r', encoding='utf-8') as jsonFile:
-+            data = json.load(jsonFile)
-+            return data.get("repoPath")
-+
-
-
-[UNDEFINED] codewise/operations/jsonOperations/__init__.py
-
-[UNDEFINED] controller/CrewController.py
-@@ -0,0 +1,12 @@
-+from codewise.crewAI_workflow.testCrew import testCrew
-+
-+class CrewController():
-+
-+    def __init__(self):
-+        pass
-+
-+    def start(self):
-+        test = testCrew()
-+        result = test.start()
-+
-+        print(result)
-
-
-[UNDEFINED] controller/ObserverController.py
-@@ -0,0 +1,14 @@
-+from codewise.Observer.Observer import start_observing, find_git_repo
-+from codewise.operations.jsonOperations.GetJson import GetJson
-+
-+class ObserverController():
-+
-+    def __init__(self):
-+        getJson = GetJson()
-+        self.path = getJson.get_repo_path_from_json()
-+        self.userGitPath = find_git_repo(self.path)
-+
-+    async def start(self):
-+        if self.userGitPath == None:
-+            return
-+        start_observing(self.userGitPath)
-
-
-[UNDEFINED] controller/__init__.py
-============================================================
-
-New commit detected:
-Hash: a5fe17663988036bfa31ac1a00e44945e19cb230
-Autor: gabriel <gabrieldev131@gmail.com>
-Date: 2025-06-05 19:17:48-03:00
-Mensage: test10
-changes files:
-
-[UNDEFINED] codewise/DTO/RequestObserverDTO.py
-@@ -0,0 +1,5 @@
-+class RequestObserverDTO:
-+    def __init__(self, git_path):
-+        self.git_path = git_path
++        public Aluno() { }
 +        
-+
-
-
-[UNDEFINED] codewise/DTO/ResponseObserverDTO.py
-@@ -0,0 +1,18 @@
-+class ChangedFile:
-+    def __init__(self, file_path, change_type, diff_content):
-+        self.file_path = file_path
-+        self.change_type = change_type
-+        self.diff_content = diff_content
-+
-+
-+
-+class ResponseObserverDTO:
-+    def __init__(self, commit_hash, author_name, author_email, committed_date, message, changed_files):
-+        self.commit_hash = commit_hash
-+        self.author_name = author_name
-+        self.author_email = author_email
-+        self.committed_date = committed_date
-+        self.message = message
-+        self.changed_files_list = changed_files 
-+
-+
-
-
-[UNDEFINED] codewise/DTO/__init__.py
-
-[UNDEFINED] codewise/Observer/Observer.py
-@@ -0,0 +1,96 @@
-+import time
-+import os
-+from pathlib import Path
-+from watchdog.observers import Observer
-+from watchdog.events import FileSystemEventHandler
-+from git import Repo
-+from git import NULL_TREE
-+
-+
-+class GitCommitObserver(FileSystemEventHandler):
-+    def __init__(self, git_path):
-+        self.repo_path = git_path.parent
-+        self.logs_head_file = os.path.join(git_path, "logs", "HEAD")
-+        self.last_commit_hash = self.get_last_commit_hash()
-+
-+    def get_last_commit_hash(self):
-+        try:
-+            repo = Repo(self.repo_path)
-+            return repo.head.commit.hexsha
-+        except:
-+            return None
-+
-+    def on_modified(self, event):
-+        if event.src_path == self.logs_head_file:
-+            time.sleep(0.5)
-+            new_commit_hash = self.get_last_commit_hash()
-+            if new_commit_hash != self.last_commit_hash:
-+                self.last_commit_hash = new_commit_hash
-+                self.show_commit_details(new_commit_hash)
-+
-+    def show_commit_details(self, commit_hash, output_path=None):
-+        repo = Repo(self.repo_path)
-+        commit = repo.commit(commit_hash)
-+
-+        lines = []
-+        lines.append("\nNew commit detected:")
-+        lines.append(f"Hash: {commit.hexsha}")
-+        lines.append(f"Autor: {commit.author.name} <{commit.author.email}>")
-+        lines.append(f"Date: {commit.committed_datetime}")
-+        lines.append(f"Mensage: {commit.message.strip()}")
-+        lines.append("changes files:")
-+
-+        parent = commit.parents[0] if commit.parents else None
-+
-+        if parent:
-+            diffs = parent.diff(commit, create_patch=True)
-+        else:
-+            diffs = commit.diff(NULL_TREE, create_patch=True)  # para commit inicial
-+
-+        for diff in diffs:
-+            change_type = diff.change_type.upper() if diff.change_type else "UNDEFINED"
-+            file_path = diff.a_path if diff.a_path else diff.b_path
-+            lines.append(f"\n[{change_type}] {file_path}")
-+
-+            if diff.diff:
-+                try:
-+                    diff_text = diff.diff.decode('utf-8', errors='replace')
-+                    lines.append(diff_text)
-+                except Exception as e:
-+                    lines.append(f"(Erro to print diff: {e})")
-+
-+        #save anything in gitInput.txt
-+        if output_path is None:
-+            script_dir = Path(__file__).resolve()
-+            project_root = script_dir.parents[1]  
-+            output_path = os.path.join(project_root, 'crewAI_workflow', 'gitInput.txt')
-+            
-+
-+        with open(output_path, "a", encoding="utf-8") as f:
-+            f.write("\n".join(lines))
-+            f.write("\n" + "="*60 + "\n")
-+
-+
-+def find_git_repo(start_path):
-+    path = Path(start_path).resolve()
-+    while path != path.parent:
-+        git_dir = path / ".git"
-+        if git_dir.is_dir():
-+            return git_dir
-+        path = path.parent
-+    return None
-+
-+def start_observing(git_dir):
-+    event_handler = GitCommitObserver(git_dir)
-+    observer = Observer()
-+    observer.schedule(event_handler, path=os.path.join(git_dir, "logs"), recursive=False)
-+    observer.start()
-+
-+    try:
-+        while True:
-+            time.sleep(1)
-+    except KeyboardInterrupt:
-+        observer.stop()
-+    observer.join()
-+ 
-+
-
-
-[UNDEFINED] codewise/Observer/__init__.py
-
-[UNDEFINED] codewise/crewAI_workflow/.gitignore
-@@ -0,0 +1,4 @@
-+.env
-+__pycache__/
-+.DS_Store
-+APIs.txt
++        public Aluno(int id, string nome, string endereco)
++        {
++            Id = id;
++            Nome = nome;
++            Endereco = endereco;
++        }
++    }
++}
 \ No newline at end of file
 
 
-[UNDEFINED] codewise/crewAI_workflow/WriteInFile.py
-@@ -0,0 +1,8 @@
-+class WriteInFile():
-+    def __init__(self, filePathToSave: str):
-+        self.filePathToSave = filePathToSave
-+    
-+    def write(self, conteudo):
-+        with open(self.filePathToSave, "w", encoding="utf-8") as f:
-+            f.write(conteudo)
-+            
-
-
-[UNDEFINED] codewise/crewAI_workflow/__init__.py
-
-[UNDEFINED] codewise/crewAI_workflow/config/agents.yaml
-@@ -0,0 +1,19 @@
-+researcher:
-+  role: >
-+    {topic} Senior Data Researcher
-+  goal: >
-+    Uncover cutting-edge developments in {topic}
-+  backstory: >
-+    You're a seasoned researcher with a knack for uncovering the latest
-+    developments in {topic}. Known for your ability to find the most relevant
-+    information and present it in a clear and concise manner.
-+
-+reporting_analyst:
-+  role: >
-+    {topic} Reporting Analyst
-+  goal: >
-+    Create detailed reports based on {topic} data analysis and research findings
-+  backstory: >
-+    You're a meticulous analyst with a keen eye for detail. You're known for
-+    your ability to turn complex data into clear and concise reports, making
-+    it easy for others to understand and act on the information you provide.
-\ No newline at end of file
-
-
-[UNDEFINED] codewise/crewAI_workflow/config/tasks.yaml
+[UNDEFINED] Disciplina.cs
 @@ -0,0 +1,17 @@
-+research_task:
-+  description: >
-+    Conduct a thorough research about {topic}
-+    Make sure you find any interesting and relevant information given
-+    the current year is {current_year}.
-+  expected_output: >
-+    A list with 10 bullet points of the most relevant information about {topic}
-+  agent: researcher
++namespace WebDisciplina {   
++    public class Disciplina
++    {
++        public int? Id { get; set; }
++        public string? Nome { get; set; }
++        public string? Descricao { get; set; }
 +
-+reporting_task:
-+  description: >
-+    Review the context you got and expand each topic into a full section for a report.
-+    Make sure the report is detailed and contains any and all relevant information.
-+  expected_output: >
-+    A fully fledged report with the main topics, each with a full section of information.
-+    Formatted as markdown without '```'
-+  agent: reporting_analyst
++        public Disciplina() { }
++        
++        public Disciplina(int id, string nome, string descricao)
++        {
++            Id = id;
++            Nome = nome;
++            Descricao = descricao;
++        }
++    }
++}
+\ No newline at end of file
 
 
-[UNDEFINED] codewise/crewAI_workflow/gitInput.txt
-@@ -0,0 +1,4330 @@
+[UNDEFINED] EscolaService.cs
+@@ -0,0 +1,79 @@
++using System;
++using System.Collections.Generic;
++using System.Net.Http;
++using System.Threading.Tasks;
++using Newtonsoft.Json;
++using WebAluno;
++using WebDisciplina;
 +
-+New commit detected:
-+Hash: 1dc1d6d3807a412642938e8193798750d9edc4f6
-+Autor: gabriel <gabrieldev131@gmail.com>
-+Date: 2025-06-05 19:13:13-03:00
-+Mensage: test9
-+changes files:
++namespace WebEscolaService {
++    public class EscolaService
++    {
++        private static EscolaService? _instance;
++        private static readonly object _lock = new object(); // Para garantir segurança em multithread
++        private static readonly string BaseUrl = "http://localhost:3000/";
++        private static HttpClient? _httpClient;
 +
-+[UNDEFINED] Observer.py
-+@@ -71,6 +71,7 @@ class GitCommitObserver(FileSystemEventHandler):
-+             f.write("\n" + "="*60 + "\n")
-+ 
-+ #jump me
-++#me too
-+ def find_git_repo(start_path):
-+     path = Path(start_path).resolve()
-+     while path != path.parent:
++        // Construtor privado para impedir a criação direta de instâncias
++        private EscolaService()
++        {
++            _httpClient = new HttpClient();
++        }
 +
-+============================================================
++        // Método para obter a única instância (Singleton)
++        public static EscolaService GetInstance()
++        {
++            if (_instance == null)
++            {
++                lock (_lock)  // Garantir que uma única instância seja criada em um ambiente multithread
++                {
++                    if (_instance == null)
++                    {
++                        _instance = new EscolaService();
++                    }
++                }
++            }
++            return _instance;
++        }
 +
-+New commit detected:
-+Hash: 9a4d79475984474560cecc58b0c9fa2dfea12ce9
-+Autor: gabriel <gabrieldev131@gmail.com>
-+Date: 2025-06-05 19:14:05-03:00
-+Mensage: test10
-+changes files:
++        // Método para obter a lista de alunos
++        public async Task<List<Aluno>?> ObterAlunosAsync()
++        {
++            try
++            {
++                _httpClient = new HttpClient();
++                HttpResponseMessage response = await _httpClient.GetAsync($"{BaseUrl}alunos");
++                response.EnsureSuccessStatusCode();
 +
-+[UNDEFINED] crewAI_workflow/WriteInFile.py
-+@@ -1,8 +0,0 @@
-+-class WriteInFile():
-+-    def __init__(self, filePathToSave: str):
-+-        self.filePathToSave = filePathToSave
-+-    
-+-    def write(self, conteudo):
-+-        with open(self.filePathToSave, "w", encoding="utf-8") as f:
-+-            f.write(conteudo)
-+-            
++                string jsonResponse = await response.Content.ReadAsStringAsync();
++                List<Aluno>? alunos = JsonConvert.DeserializeObject<List<Aluno>>(jsonResponse);
++                return alunos;
++            }
++            catch (Exception ex)
++            {
++                Console.WriteLine($"Erro ao obter alunos: {ex.Message}");
++                return null;
++            }
++        }
 +
++        // Método para obter a lista de disciplinas
++        public async Task<List<Disciplina>?> ObterDisciplinasAsync()
++        {
++            try
++            {
++                _httpClient = new HttpClient();
++                HttpResponseMessage response = await _httpClient.GetAsync($"{BaseUrl}disciplinas");
++                response.EnsureSuccessStatusCode();
 +
-+[UNDEFINED] crewAI_workflow/__init__.py
-+
-+[UNDEFINED] crewAI_workflow/config/agents.yaml
-+@@ -1,19 +0,0 @@
-+-researcher:
-+-  role: >
-+-    {topic} Senior Data Researcher
-+-  goal: >
-+-    Uncover cutting-edge developments in {topic}
-+-  backstory: >
-+-    You're a seasoned researcher with a knack for uncovering the latest
-+-    developments in {topic}. Known for your ability to find the most relevant
-+-    information and present it in a clear and concise manner.
-+-
-+-reporting_analyst:
-+-  role: >
-+-    {topic} Reporting Analyst
-+-  goal: >
-+-    Create detailed reports based on {topic} data analysis and research findings
-+-  backstory: >
-+-    You're a meticulous analyst with a keen eye for detail. You're known for
-+-    your ability to turn complex data into clear and concise reports, making
-+-    it easy for others to understand and act on the information you provide.
-+\ No newline at end of file
-+
-+
-+[UNDEFINED] crewAI_workflow/config/tasks.yaml
-+@@ -1,17 +0,0 @@
-+-research_task:
-+-  description: >
-+-    Conduct a thorough research about {topic}
-+-    Make sure you find any interesting and relevant information given
-+-    the current year is {current_year}.
-+-  expected_output: >
-+-    A list with 10 bullet points of the most relevant information about {topic}
-+-  agent: researcher
-+-
-+-reporting_task:
-+-  description: >
-+-    Review the context you got and expand each topic into a full section for a report.
-+-    Make sure the report is detailed and contains any and all relevant information.
-+-  expected_output: >
-+-    A fully fledged report with the main topics, each with a full section of information.
-+-    Formatted as markdown without '```'
-+-  agent: reporting_analyst
-+
-+
-+[UNDEFINED] crewAI_workflow/knowledge/user_preference.txt
-+@@ -1,4 +0,0 @@
-+-User name is John Doe.
-+-User is an AI Engineer.
-+-User is interested in AI Agents.
-+-User is based in San Francisco, California.
-+
-+
-+[UNDEFINED] crewAI_workflow/pyproject.toml
-+@@ -1,23 +0,0 @@
-+-[project]
-+-name = "codewise"
-+-version = "0.1.0"
-+-description = "CodeWise using crewAI"
-+-authors = [{ name = "Your Name", email = "you@example.com" }]
-+-requires-python = ">=3.10,<3.13"
-+-dependencies = [
-+-    "crewai[tools]>=0.102.0,<1.0.0"
-+-]
-+-
-+-[project.scripts]
-+-codewise = "codewise.main:run"
-+-run_crew = "codewise.main:run"
-+-train = "codewise.main:train"
-+-replay = "codewise.main:replay"
-+-test = "codewise.main:test"
-+-
-+-[build-system]
-+-requires = ["hatchling"]
-+-build-backend = "hatchling.build"
-+-
-+-[tool.crewai]
-+-type = "crew"
-+
-+
-
-+[UNDEFINED] crewAI_workflow/testCrew.py
-+@@ -1,89 +0,0 @@
-+-import os
-+-from crewai import Agent, Task, Crew, Process, LLM
-+-from crewai_tools import FileReadTool
-+-from dotenv import load_dotenv
-+-
-+-
-+-class testCrew():
-+-    def __init__(self):
-+-        pass
-+-
-+-    def start(self):
-+-        load_dotenv()
-+-        llm = LLM(
-+-            model=os.getenv("MODEL"), 
-+-            api_key=os.getenv("GEMINI_API_KEY"))
-+-
-+-        script_dir = os.path.dirname(os.path.abspath(__file__))
-+-        path = os.path.join(script_dir, 'gitInput.txt')
-+-
-+-        file_tool = FileReadTool(file_path=path)
-+-
-+-        # === Agents ===
-+-        architect = Agent(
-+-            role="Arquiteto de Software",
-+-            goal="Avaliar a estrutura e arquitetura do projeto de forma crítica",
-+-            backstory="Especialista em arquitetura de software escalável, define boas práticas para equipes ágeis.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        integration_analyst = Agent(
-+-            role="Analista de Integrações",
-+-            goal="Examinar os fluxos entre módulos e sugerir melhorias",
-+-            backstory="Com anos de experiência em sistemas distribuídos, é focado em encontrar falhas de comunicação entre módulos.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        solid_guardian = Agent(
-+-            role="Guardião dos Princípios SOLID",
-+-            goal="Verificar e corrigir violações de boas práticas SOLID",
-+-            backstory="Um verdadeiro defensor da engenharia orientada a princípios, especialista em refatoração.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        design_consultant = Agent(
-+-            role="Consultor de Design Patterns",
-+-            goal="Sugerir padrões de projeto aplicáveis ao código",
-+-            backstory="Transforma bases de código confusas em exemplos de elegância com padrões clássicos de software.",
-+-            tools=[file_tool],
-+-            memory=True,
-+-        )
-+-
-+-        # === Tasks ===
-+-        task_structure = Task(
-+-            description="Analise a estrutura de pastas do projeto descrito em gitInput.txt. Identifique se há um padrão arquitetural (ex: MVC, DDD, Clean).",
-+-            expected_output="Um relatório descrevendo o padrão atual da estrutura ou a falta dele, com sugestões.",
-+-            agent=architect
-+-        )
-+-
-+-        task_integrations = Task(
-+-            description="Avalie os fluxos de integração do projeto descrito no gitInput.txt. Descreva como os módulos interagem, e aponte problemas de acoplamento ou falhas.",
-+-            expected_output="Mapa geral dos fluxos, com destaques nos pontos críticos e sugestões de melhoria.",
-+-            agent=integration_analyst
-+-        )
-+-
-+-        task_solid = Task(
-+-            description="Revise as classes e métodos encontrados no código do gitInput.txt, identificando violações aos princípios SOLID.",
-+-            expected_output="Lista de violações SOLID e recomendações específicas para corrigi-las.",
-+-            agent=solid_guardian
-+-        )
-+-
-+-        task_patterns = Task(
-+-            description="Sugira até 3 padrões de projeto que poderiam melhorar o código descrito em gitInput.txt. Explique onde e como aplicá-los.",
-+-            expected_output="Sugestões de padrões de projeto com justificativas técnicas e exemplos baseados no código fornecido.",
-+-            agent=design_consultant,
-+-            output_file="commit_analysis_report.md"
-+-        )
-+-
-+-        # === Crew ===
-+-        crew = Crew(
-+-            agents=[architect, integration_analyst, solid_guardian, design_consultant],
-+-            tasks=[task_structure, task_integrations, task_solid, task_patterns],
-+-            process=Process.sequential,
-+-            llm=llm
-+-        )
-+-        os.remove(path)
-+-        return crew.kickoff()
-+
-+
-
-+[UNDEFINED] operations/jsonOperations/GetJson.py
-+@@ -1,16 +0,0 @@
-+-import json
-+-from pathlib import Path
-+-
-+-class GetJson():
-+-    def __init__(self):
-+-         pass
-+-    
-+-    def get_repo_path_from_json(self):
-+-        json_path = Path(__file__).resolve().parents[3] / "repo_path.json"
-+-        if not json_path.exists():
-+-            return None
-+-
-+-        with open(json_path, 'r', encoding='utf-8') as jsonFile:
-+-            data = json.load(jsonFile)
-+-            return data.get("repoPath")
-+-
-+
-+
-+[UNDEFINED] operations/jsonOperations/__init__.py
-+
-+[UNDEFINED] operations/jsonOperations/__pycache__/GetJson.cpython-312.pyc
-+Binary files a/operations/jsonOperations/__pycache__/GetJson.cpython-312.pyc and /dev/null differ
-+
-+
-+[UNDEFINED] operations/jsonOperations/__pycache__/__init__.cpython-312.pyc
-+Binary files a/operations/jsonOperations/__pycache__/__init__.cpython-312.pyc and /dev/null differ
-+
-+============================================================
++                string jsonResponse = await response.Content.ReadAsStringAsync();
++                List<Disciplina>? disciplinas = JsonConvert.DeserializeObject<List<Disciplina>>(jsonResponse);
++                return disciplinas;
++            }
++            catch (Exception ex)
++            {
++                Console.WriteLine($"Erro ao obter disciplinas: {ex.Message}");
++                return null;
++            }
++        }
++    }
++}
+\ No newline at end of file
 
 
-[UNDEFINED] codewise/crewAI_workflow/pyproject.toml
-@@ -0,0 +1,23 @@
-+[project]
-+name = "codewise"
-+version = "0.1.0"
-+description = "CodeWise using crewAI"
-+authors = [{ name = "Your Name", email = "you@example.com" }]
-+requires-python = ">=3.10,<3.13"
-+dependencies = [
-+    "crewai[tools]>=0.102.0,<1.0.0"
-+]
+[UNDEFINED] XmlService.cs
+@@ -0,0 +1,68 @@
++using System;
++using System.Collections.Generic;
++using System.IO;
++using System.Xml.Serialization;
++using WebRequestDto;
++using WebAluno;
++using WebDisciplina;
 +
-+[project.scripts]
-+codewise = "codewise.main:run"
-+run_crew = "codewise.main:run"
-+train = "codewise.main:train"
-+replay = "codewise.main:replay"
-+test = "codewise.main:test"
++namespace WebXmlService {
++    public class XmlService
++    {
++        // Método para salvar a lista de alunos em um arquivo XML
++        public void SalvarAlunosEmXml(RequestAlunoXmlDto requestAluno)
++        {
++            try
++            {
++                if (string.IsNullOrEmpty(requestAluno.CaminhoArquivo))
++                {
++                    throw new ArgumentException("O caminho do arquivo não pode ser nulo ou vazio.", nameof(requestAluno.CaminhoArquivo));
++                }
++                // Serializador para a lista de Alunos
++                XmlSerializer serializer = new(typeof(List<Aluno>));
 +
-+[build-system]
-+requires = ["hatchling"]
-+build-backend = "hatchling.build"
++                // Usar o caminho do arquivo fornecido pelo objeto requestAluno
++                using (StreamWriter writer = new(requestAluno.CaminhoArquivo))
++                {
++                    // Serializando a lista de alunos
++                    serializer.Serialize(writer, requestAluno.Alunos);
++                }
 +
-+[tool.crewai]
-+type = "crew"
++                Console.WriteLine($"Arquivo XML de alunos salvo em: {requestAluno.CaminhoArquivo}");
++            }
++            catch (Exception ex)
++            {
++                Console.WriteLine($"Erro ao salvar alunos em XML: {ex.Message}");
++            }
++        }
++
++        // Método para salvar a lista de disciplinas em um arquivo XML
++        public void SalvarDisciplinasEmXml(RequestDisciplinaXmlDto requestDisciplina)
++        {
++            try
++            {
++                if (string.IsNullOrEmpty(requestDisciplina.CaminhoArquivo))
++                {
++                    throw new ArgumentException("O caminho do arquivo não pode ser nulo ou vazio.", nameof(requestDisciplina.CaminhoArquivo));
++                }
++
++                // Serializador para a lista de Disciplinas
++                XmlSerializer serializer = new(typeof(List<Disciplina>));
++                
++                // Usar o caminho do arquivo fornecido pelo objeto requestDisciplina
++                using (StreamWriter writer = new(requestDisciplina.CaminhoArquivo))
++                {
++                    // Serializando a lista de disciplinas
++                    serializer.Serialize(writer, requestDisciplina.Disciplina);
++                }
++                
++                Console.WriteLine($"Arquivo XML de disciplinas salvo em: {requestDisciplina.CaminhoArquivo}");
++            }
++            catch (Exception ex)
++            {
++                Console.WriteLine($"Erro ao salvar disciplinas em XML: {ex.Message}");
++            }
++        }
++
++    }
++}
+\ No newline at end of file
 
-
-[UNDEFINED] codewise/crewAI_workflow/testCrew.py
-@@ -0,0 +1,88 @@
-+import os
-+from crewai import Agent, Task, Crew, Process, LLM
-+from crewai_tools import FileReadTool
-+from dotenv import load_dotenv
-+
-+
-+class testCrew():
-+    def __init__(self):
-+        pass
-+
-+    def start(self):
-+        load_dotenv()
-+        llm = LLM(
-+            model=os.getenv("MODEL"), 
-+            api_key=os.getenv("GEMINI_API_KEY"))
-+
-+        script_dir = os.path.dirname(os.path.abspath(__file__))
-+        path = os.path.join(script_dir, 'gitInput.txt')
-+
-+        file_tool = FileReadTool(file_path=path)
-+
-+        # === Agents ===
-+        architect = Agent(
-+            role="Arquiteto de Software",
-+            goal="Avaliar a estrutura e arquitetura do projeto de forma crítica",
-+            backstory="Especialista em arquitetura de software escalável, define boas práticas para equipes ágeis.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        integration_analyst = Agent(
-+            role="Analista de Integrações",
-+            goal="Examinar os fluxos entre módulos e sugerir melhorias",
-+            backstory="Com anos de experiência em sistemas distribuídos, é focado em encontrar falhas de comunicação entre módulos.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        solid_guardian = Agent(
-+            role="Guardião dos Princípios SOLID",
-+            goal="Verificar e corrigir violações de boas práticas SOLID",
-+            backstory="Um verdadeiro defensor da engenharia orientada a princípios, especialista em refatoração.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        design_consultant = Agent(
-+            role="Consultor de Design Patterns",
-+            goal="Sugerir padrões de projeto aplicáveis ao código",
-+            backstory="Transforma bases de código confusas em exemplos de elegância com padrões clássicos de software.",
-+            tools=[file_tool],
-+            memory=True,
-+        )
-+
-+        # === Tasks ===
-+        task_structure = Task(
-+            description="Analise a estrutura de pastas do projeto descrito em gitInput.txt. Identifique se há um padrão arquitetural (ex: MVC, DDD, Clean).",
-+            expected_output="Um relatório descrevendo o padrão atual da estrutura ou a falta dele, com sugestões.",
-+            agent=architect
-+        )
-+
-+        task_integrations = Task(
-+            description="Avalie os fluxos de integração do projeto descrito no gitInput.txt. Descreva como os módulos interagem, e aponte problemas de acoplamento ou falhas.",
-+            expected_output="Mapa geral dos fluxos, com destaques nos pontos críticos e sugestões de melhoria.",
-+            agent=integration_analyst
-+        )
-+
-+        task_solid = Task(
-+            description="Revise as classes e métodos encontrados no código do gitInput.txt, identificando violações aos princípios SOLID.",
-+            expected_output="Lista de violações SOLID e recomendações específicas para corrigi-las.",
-+            agent=solid_guardian
-+        )
-+
-+        task_patterns = Task(
-+            description="Sugira até 3 padrões de projeto que poderiam melhorar o código descrito em gitInput.txt. Explique onde e como aplicá-los.",
-+            expected_output="Sugestões de padrões de projeto com justificativas técnicas e exemplos baseados no código fornecido.",
-+            agent=design_consultant,
-+            output_file="commit_analysis_report.md"
-+        )
-+
-+        # === Crew ===
-+        crew = Crew(
-+            agents=[architect, integration_analyst, solid_guardian, design_consultant],
-+            tasks=[task_structure, task_integrations, task_solid, task_patterns],
-+            process=Process.sequential,
-+            llm=llm
-+        )
-+        return crew.kickoff()
-
-
-[UNDEFINED] codewise/operations/jsonOperations/GetJson.py
-@@ -0,0 +1,16 @@
-+import json
-+from pathlib import Path
-+
-+class GetJson():
-+    def __init__(self):
-+         pass
-+    
-+    def get_repo_path_from_json(self):
-+        json_path = Path(__file__).resolve().parents[3] / "repo_path.json"
-+        if not json_path.exists():
-+            return None
-+
-+        with open(json_path, 'r', encoding='utf-8') as jsonFile:
-+            data = json.load(jsonFile)
-+            return data.get("repoPath")
-+
-
-
-[UNDEFINED] codewise/operations/jsonOperations/__init__.py
-
-[UNDEFINED] controller/CrewController.py
-@@ -0,0 +1,12 @@
-+from codewise.crewAI_workflow.testCrew import testCrew
-+
-+class CrewController():
-+
-+    def __init__(self):
-+        pass
-+
-+    def start(self):
-+        test = testCrew()
-+        result = test.start()
-+
-+        print(result)
-
-
-[UNDEFINED] controller/ObserverController.py
-@@ -0,0 +1,14 @@
-+from codewise.Observer.Observer import start_observing, find_git_repo
-+from codewise.operations.jsonOperations.GetJson import GetJson
-+
-+class ObserverController():
-+
-+    def __init__(self):
-+        getJson = GetJson()
-+        self.path = getJson.get_repo_path_from_json()
-+        self.userGitPath = find_git_repo(self.path)
-+
-+    async def start(self):
-+        if self.userGitPath == None:
-+            return
-+        start_observing(self.userGitPath)
-
-
-[UNDEFINED] controller/__init__.py
 ============================================================
