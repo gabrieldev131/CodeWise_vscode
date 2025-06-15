@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showErrorMessage("Any folder is open.");
         return;
     }
-
+    
     observeEnvFile(context);
     observeGitCommits(context);
 

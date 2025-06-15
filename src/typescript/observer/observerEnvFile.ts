@@ -13,7 +13,7 @@ export function observeEnvFile(context: vscode.ExtensionContext) {
   const destDir = path.join(context.extensionPath, 'src', 'typescript', 'langgraph');
   const destEnvPath = path.join(destDir, '.env');
 
-  function copyEnvToCrewAI() {
+  function copyEnvFile() {
     if (!fs.existsSync(userEnvPath)) {
       vscode.window.showWarningMessage(".env not found.");
       return;
@@ -28,10 +28,10 @@ export function observeEnvFile(context: vscode.ExtensionContext) {
   }
 
   // Executa uma cópia imediata se já existir
-  copyEnvToCrewAI();
+  copyEnvFile();
 
   // Observa criação/modificação do .env
   const watcher = vscode.workspace.createFileSystemWatcher('**/.env');
-  watcher.onDidCreate(() => copyEnvToCrewAI());
-  watcher.onDidChange(() => copyEnvToCrewAI());
+  watcher.onDidCreate(() => copyEnvFile());
+  watcher.onDidChange(() => copyEnvFile());
 }
