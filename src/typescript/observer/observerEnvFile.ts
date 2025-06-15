@@ -10,7 +10,7 @@ export function observeEnvFile(context: vscode.ExtensionContext) {
   }
 
   const userEnvPath = path.join(workspaceFolders[0].uri.fsPath, '.env');
-  const destDir = path.join(context.extensionPath, 'src', 'python', 'codewise', 'crewAI_workflow');
+  const destDir = path.join(context.extensionPath, 'src', 'typescript', 'langgraph');
   const destEnvPath = path.join(destDir, '.env');
 
   function copyEnvToCrewAI() {

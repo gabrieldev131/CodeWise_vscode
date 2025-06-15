@@ -1,4 +1,0 @@
-watchdog==6.0.0
-gitpython==3.1.44
-crewai==0.121.1
-crewai-tools==0.46.0

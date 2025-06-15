@@ -31,6 +31,10 @@
 
     Real-time error alerts in VS Code interface.
 
+* v1.0.1 - 2025-06-15
+
+    Integrated typescript backend using langchain and langgraph
+
 ## [Unreleased]
 
 - Improved environment variable validation and feedback system.
