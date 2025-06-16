@@ -90,14 +90,37 @@ export class LangWise {
   Sugira até 3 padrões de projeto que poderiam melhorar o código. Explique como e onde aplicá-los.
       `, gitInput);
 
-      const crew = RunnableSequence.from([
-        architectAgent,
-        integrationAgent,
-        solidAgent,
-        patternsAgent,
+      const [architectResult, integrationResult, solidResult, patternsResult] = await Promise.all([
+        architectAgent.invoke([]),
+        integrationAgent.invoke([]),
+        solidAgent.invoke([]),
+        patternsAgent.invoke([]),
       ]);
 
-      const result = await crew.invoke([]);
+      const allOutputs = `
+      ## Arquitetura do Projeto
+
+      ${architectResult.content}
+
+      ---
+
+      ## Integração entre Módulos
+
+      ${integrationResult.content}
+
+      ---
+
+      ## Análise dos Princípios SOLID
+
+      ${solidResult.content}
+
+      ---
+
+      ## Sugestão de Design Patterns
+
+      ${patternsResult.content}
+      `;
+
 
       const workspaceFolders = vscode.workspace.workspaceFolders;
       if (!workspaceFolders || workspaceFolders.length === 0) {
@@ -107,8 +130,6 @@ export class LangWise {
 
       const workspacePath = workspaceFolders[0].uri.fsPath;
       const outputPath = path.join(workspacePath, 'commit_analysis_report.md');
-
-      const allOutputs = result.content;
 
       fs.writeFileSync(outputPath, allOutputs, { encoding: 'utf-8' });
 

@@ -28,7 +28,7 @@ Ensures all required .env variables are valid before running the analysis.
 
         MODEL – the model name for the LLM (e.g., gemini-2.0-flash)
 
-        CODEWISE_AGENT_API_KEY – your API key for the model provider
+        GEMINI_API_KEY – your API key for the model provider
 
     Internet connection to run LLM-based agents
 
@@ -56,7 +56,7 @@ Currently, only one workspace folder is supported at a time.
 
 ## Release Notes
 
-v1.0.1
+v1.0.2
     fix some bugs about A.I analysis
 
     all python code was replaced by typescript
