@@ -56,6 +56,9 @@ Currently, only one workspace folder is supported at a time.
 
 ## Release Notes
 
+v1.0.4
+    change some translations in portuguese to english
+    compile node.js to linux (ubuntu 24.04)
 v1.0.2
     fix some bugs about A.I analysis
 

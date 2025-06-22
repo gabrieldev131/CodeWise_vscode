@@ -1,19 +1,8 @@
 # Change Log
 
-* Initial contents 0.0.1-beta
-    First public version of the extension.
+* v1.0.2 - 2025-06-15
 
-    Start n8n locally or with an Ngrok tunnel.
-
-    Option to configure Ngrok auth token if not already set.
-
-    Automatically open public URL for remote access via Ngrok.
-
-    Automatically load a predefined n8n workflow from extension files.
-
-    Docker integration to manage n8n container.
-
-    Health check loop to wait for n8n readiness before importing workflows.
+    Integrated typescript backend using langchain and langgraph
 
 * v1.0.0 - 2025-06-05
 
@@ -31,9 +20,20 @@
 
     Real-time error alerts in VS Code interface.
 
-* v1.0.2 - 2025-06-15
+* Initial contents 0.0.1-beta
+    First public version of the extension.
 
-    Integrated typescript backend using langchain and langgraph
+    Start n8n locally or with an Ngrok tunnel.
+
+    Option to configure Ngrok auth token if not already set.
+
+    Automatically open public URL for remote access via Ngrok.
+
+    Automatically load a predefined n8n workflow from extension files.
+
+    Docker integration to manage n8n container.
+
+    Health check loop to wait for n8n readiness before importing workflows.
 
 ## [Unreleased]
 
