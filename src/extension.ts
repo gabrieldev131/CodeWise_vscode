@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { observeEnvFile } from './typescript/observer/observerEnvFile';
 import { observeGitCommits } from './typescript/observer/GitCommitObserver';
-import { LangWise } from './typescript/langgraph/LangWise'
+import { LangWise } from './typescript/langgraph/LangWise';
 
 
 export function activate(context: vscode.ExtensionContext) {

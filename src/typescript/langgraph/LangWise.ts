@@ -19,7 +19,7 @@ export class LangWise {
     this.apiKey = process.env.GEMINI_API_KEY || '';
 
     if (!this.model || !this.apiKey) {
-        vscode.window.showErrorMessage("Variáveis de ambiente 'MODEL' e 'GEMINI_API_KEY' são obrigatórias.");
+        vscode.window.showErrorMessage("Environment variables 'MODEL' and 'GEMINI_API_KEY' are mandatory.");
     }
 
   }
@@ -53,8 +53,6 @@ export class LangWise {
   }
 
   public async start(context: vscode.ExtensionContext): Promise<void> {
-    const { RunnableSequence } = await import('@langchain/core/runnables');
-
     const scriptDir = path.resolve(this.rootPath, 'src', 'typescript', 'langgraph');
     const inputPath = path.join(scriptDir, 'gitInput.txt');
     let gitInput: string;
@@ -124,7 +122,7 @@ export class LangWise {
 
       const workspaceFolders = vscode.workspace.workspaceFolders;
       if (!workspaceFolders || workspaceFolders.length === 0) {
-      vscode.window.showWarningMessage('Nenhum workspace aberto.');
+      vscode.window.showWarningMessage('No open workspaces.');
       return;
       }
 

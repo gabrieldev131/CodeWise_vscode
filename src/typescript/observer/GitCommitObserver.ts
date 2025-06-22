@@ -93,7 +93,7 @@ export function findGitRepo(startPath: string): string | null {
 export async function observeGitCommits(context: vscode.ExtensionContext) {
   const workspaceFolders = vscode.workspace.workspaceFolders;
   if (!workspaceFolders || workspaceFolders.length === 0) {
-    vscode.window.showWarningMessage('Nenhum workspace aberto.');
+    vscode.window.showWarningMessage("Any folder is open.");
     return;
   }
 
@@ -101,7 +101,7 @@ export async function observeGitCommits(context: vscode.ExtensionContext) {
   const gitDir = findGitRepo(workspacePath);
 
   if (!gitDir) {
-    vscode.window.showWarningMessage('Nenhum repositório Git encontrado nesta workspace.');
+    vscode.window.showWarningMessage('No Git repositories found in this workspace.');
     return;
   }
 
@@ -115,5 +115,5 @@ export async function observeGitCommits(context: vscode.ExtensionContext) {
   watcher.onDidCreate(() => observer.handleHeadChange());
 
   context.subscriptions.push(watcher);
-  vscode.window.showInformationMessage('Observador de commits Git iniciado.');
+  vscode.window.showInformationMessage('Git commit watcher started.');
 }
