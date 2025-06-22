@@ -53,8 +53,6 @@ export class LangWise {
   }
 
   public async start(context: vscode.ExtensionContext): Promise<void> {
-    const { RunnableSequence } = await import('@langchain/core/runnables');
-
     const scriptDir = path.resolve(this.rootPath, 'src', 'typescript', 'langgraph');
     const inputPath = path.join(scriptDir, 'gitInput.txt');
     let gitInput: string;
