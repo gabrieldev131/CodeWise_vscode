@@ -4,11 +4,11 @@ import * as path from 'path';
 import simpleGit, { SimpleGit } from 'simple-git';
 
 export class GitCommitObserver {
-  private repoPath: string;
+  private readonly repoPath: string;
   private logsHeadFile: string;
   private lastCommitHash: string | null;
-  private git: SimpleGit;
-  private outputFilePath: string;
+  private readonly git: SimpleGit;
+  private readonly outputFilePath: string;
 
   constructor(gitDir: string, extensionPath: string) {
     this.repoPath = path.resolve(gitDir, '..');
