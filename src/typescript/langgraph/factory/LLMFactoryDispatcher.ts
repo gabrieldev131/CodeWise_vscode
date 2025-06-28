@@ -1,13 +1,13 @@
 import { factoryRegistry } from './FactoryRegistry';
 
-import './OpenAILLMFactory';
-import './GoogleLLMFactory';
-import './OllamaLLMFactory';
-import './AnthropicLLMFactory';
-import './GroqLLMFactory';
-import './TogetherLLMFactory';
-import './MistralLLMFactory';
-import './CohereLLMFactory';
+import '../llm/OpenAILLMFactory';
+import '../llm/GoogleLLMFactory';
+import '../llm/OllamaLLMFactory';
+import '../llm/AnthropicLLMFactory';
+import '../llm/GroqLLMFactory';
+import '../llm/TogetherLLMFactory';
+import '../llm/MistralLLMFactory';
+import '../llm/CohereLLMFactory';
 
 export class LLMFactoryDispatcher {
   static async getLLM(provider: string, apiKey: string, model: string): Promise<any> {

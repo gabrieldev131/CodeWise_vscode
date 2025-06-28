@@ -2,7 +2,7 @@
   "name": "codewise",
   "displayName": "CodeWise (beta)",
   "description": "automated solution that uses Artificial Intelligence to review programmers' code, identifying and suggesting improvements for performance and code smells. With Code Wise, you can efficiently optimize your code, receiving real-time feedback directly in your workflow.",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "preview": true,
   "publisher": "GabrielDiasBrito",
   "engines": {
@@ -11,6 +11,11 @@
   "categories": [
     "Other"
   ],
+  "license": "MIT",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/gabrieldev131/CodeWise.git"
+  },
   "activationEvents": [
     "*"
   ],
@@ -33,9 +38,7 @@
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
-    "vscode-languageclient": "^8.0.1",
-    "vscode-languageserver-protocol": "^3.17.3"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "@langchain/anthropic": "^0.3.23",

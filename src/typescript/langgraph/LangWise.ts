@@ -2,12 +2,11 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
-import { LLMFactoryDispatcher } from './llm/LLMFactoryDispatcher'; // ajuste o caminho
+import { LLMFactoryDispatcher } from './factory/LLMFactoryDispatcher'; 
 
 export class LangWise {
   private readonly model: string;
   private readonly apiKey: string;
-  private readonly rootPath: string;
   private readonly provider: string;
 
   private readonly providerEnvMap: Record<string, string> = {
@@ -25,9 +24,7 @@ export class LangWise {
   
   constructor(context: vscode.ExtensionContext) {
 
-    this.rootPath = context.extensionPath;
-
-    const envPath = path.resolve(this.rootPath, 'src', 'typescript', 'langgraph', '.env');
+    const envPath = path.resolve(context.extensionPath, 'src', 'typescript', 'langgraph', '.env');
     dotenv.config({ path: envPath });
 
     this.model = process.env.MODEL || '';
@@ -40,15 +37,15 @@ export class LangWise {
 
   }
 
-  private getApiKeyForProvider(provider: string): string {
+  private getApiKeyForProvider(provider: string): any {
     const envKey = this.providerEnvMap[provider.toLowerCase()];
     if (!envKey) {
-      throw new Error(`Provedor desconhecido: ${provider}`);
+      vscode.window.showErrorMessage(`Unknown provider: ${provider}`);
     }
     
     const apiKey = process.env[envKey];
     if (!apiKey) {
-      throw new Error(`Chave de API não encontrada para ${provider}. Verifique a variável ${envKey} no arquivo .env`);
+      vscode.window.showErrorMessage(`API key not found for ${provider}. Check the variable ${envKey} in .env file`);
     }
   
     return apiKey;
@@ -74,7 +71,7 @@ export class LangWise {
   }
 
   public async start(context: vscode.ExtensionContext): Promise<void> {
-    const scriptDir = path.resolve(this.rootPath, 'src', 'typescript', 'langgraph');
+    const scriptDir = path.resolve(context.extensionPath, 'src', 'typescript', 'langgraph');
     const inputPath = path.join(scriptDir, 'gitInput.txt');
     let gitInput: string;
 
@@ -171,12 +168,9 @@ export class LangWise {
 
       fs.writeFileSync(outputPath, allOutputs, { encoding: 'utf-8' });
 
-      const gitInputPath = path.join(this.rootPath, 'src', 'typescript', 'langgraph', 'gitInput.txt');
-
-      if (fs.existsSync(gitInputPath)) {
-          fs.unlinkSync(gitInputPath);
+      if (fs.existsSync(inputPath)) {
+          fs.unlinkSync(inputPath);
       } 
-      await new Promise(r => setTimeout(r, 1000));
     }
   }
 }

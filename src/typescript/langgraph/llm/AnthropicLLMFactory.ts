@@ -1,5 +1,5 @@
-import { LLMFactory } from './LLMFactory';
-import { registerFactory } from './FactoryRegistry';
+import { LLMFactory } from '../factory/LLMFactory';
+import { registerFactory } from '../factory/FactoryRegistry';
 
 @registerFactory('anthropic')
 export class AnthropicLLMFactory implements LLMFactory {

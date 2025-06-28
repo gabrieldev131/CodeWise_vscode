@@ -1,0 +1,35 @@
+name: Publish VS Code Extension
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Compilar TypeScript
+        run: npm run compile
+
+      - name: Instalar VSCE
+        run: npm install -g @vscode/vsce
+
+      - name: Empacotar extensão
+        run: vsce package --allow-star-activation
+
+      - name: Publicar extensão no VS Code Marketplace
+        run: vsce publish --pat ${{ secrets.VSCE_PAT }}
