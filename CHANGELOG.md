@@ -1,5 +1,13 @@
 # Change Log
 
+* v1.0.6 - 2025-06-27
+    add a new support for llm model
+    add a new mandatory variable
+    
+* v1.0.5 - 2025-06-25
+
+    Add a new agente analyst
+
 * v1.0.2 - 2025-06-15
 
     Integrated typescript backend using langchain and langgraph

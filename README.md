@@ -4,6 +4,8 @@ automated solution that uses Artificial Intelligence to review programmers' code
 
 ## Features
 
+Support for 9 LLMs models
+
 Real-time Git commit monitoring
 Automatically observes changes and analyzes new commits pushed to the repository.
 
@@ -20,15 +22,31 @@ Detects incorrect or missing environment variables and alerts the user with clea
 Ensures all required .env variables are valid before running the analysis.
 
 ## Requirements
-    Node.js and npm installed on your system
+    Node.js and npm installed on your system and some modules:
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "@types/vscode": "^1.85.0",
+        "@typescript-eslint/eslint-plugin": "^8.31.1",
+        "@typescript-eslint/parser": "^8.31.1",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.5.2",
+        "eslint": "^9.25.1",
+        "typescript": "^5.8.3",
+        "vscode-languageclient": "^8.0.1",
+        "vscode-languageserver-protocol": "^3.17.3"
+    
 
     VS Code with the extension loaded from the source folder
 
     .env file with the following environment variables:
 
+        PROVIDER - the provider name for the LLM (e.g., gemini)
+
         MODEL – the model name for the LLM (e.g., gemini-2.0-flash)
 
         GEMINI_API_KEY – your API key for the model provider
+
+
 
     Internet connection to run LLM-based agents
 
@@ -56,6 +74,12 @@ Currently, only one workspace folder is supported at a time.
 
 ## Release Notes
 
+v1.0.6
+    add a new support for llm model (gemini, openAI, ollama, anthropic, cohere, groq, mistral, together)
+    add a new mandatory variable (provider)
+v1.0.5
+    change the package.json
+    and a new analysis: frameWork analysis
 v1.0.4
     change some translations in portuguese to english
     compile node.js to linux (ubuntu 24.04)
