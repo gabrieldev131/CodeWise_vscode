@@ -31,9 +31,7 @@ Ensures all required .env variables are valid before running the analysis.
         "@vscode/test-cli": "^0.0.10",
         "@vscode/test-electron": "^2.5.2",
         "eslint": "^9.25.1",
-        "typescript": "^5.8.3",
-        "vscode-languageclient": "^8.0.1",
-        "vscode-languageserver-protocol": "^3.17.3"
+        "typescript": "^5.8.3"
     
 
     VS Code with the extension loaded from the source folder
@@ -55,6 +53,8 @@ This extension does not require any custom user configuration. However, ensure t
 
     A .env file must be present in the root of your workspace, containing the required environment variables:
 
+        PROVIDER - the provider name for the LLM (e.g., gemini)
+
         MODEL: The AI model to be used (e.g., gemini-pro).
 
         GEMINI_API_KEY: Your valid API key for the selected model.
@@ -75,15 +75,25 @@ Currently, only one workspace folder is supported at a time.
 ## Release Notes
 
 v1.0.6
+
     add a new support for llm model (gemini, openAI, ollama, anthropic, cohere, groq, mistral, together)
+    
     add a new mandatory variable (provider)
+
 v1.0.5
+
     change the package.json
+
     and a new analysis: frameWork analysis
+
 v1.0.4
+
     change some translations in portuguese to english
+
     compile node.js to linux (ubuntu 24.04)
+
 v1.0.2
+
     fix some bugs about A.I analysis
 
     all python code was replaced by typescript

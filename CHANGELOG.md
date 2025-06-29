@@ -1,7 +1,9 @@
 # Change Log
 
 * v1.0.6 - 2025-06-27
+
     add a new support for llm model
+
     add a new mandatory variable
     
 * v1.0.5 - 2025-06-25
